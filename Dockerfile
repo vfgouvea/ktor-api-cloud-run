@@ -9,4 +9,4 @@ RUN mkdir /app
 
 COPY --from=build /home/gradle/src/build/libs/ /app/
 
-ENTRYPOINT ["java","-jar","/app/com.example.ktor-api-all.jar"]
+ENTRYPOINT ["java","-jar","/app/ktor-api-all.jar"]
