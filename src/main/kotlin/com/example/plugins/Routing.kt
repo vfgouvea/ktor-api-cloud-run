@@ -13,8 +13,8 @@ fun Application.configureRouting() {
             call.respondText("Hello World!")
         }
         post("/"){
-            val raeBodyContent = call.receive<String>()
-            val testModel = Gson().fromJson(raeBodyContent,TestModel::class.java)
+            val rawBodyContent = call.receive<String>()
+            val testModel = Gson().fromJson(rawBodyContent,TestModel::class.java)
             call.respond("Hello, cliente with id: ${testModel.clienteId}")
         }
     }
