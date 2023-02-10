@@ -17,10 +17,10 @@ class ApplicationTest {
             configureRouting()
         }
         environment{
-            config = MapApplicationConfig{
+            config = MapApplicationConfig(
                 "ktor.deployment.host" to "0.0.0.0",
                 "ktor.deployment.port" to "8080"
-            }
+            )
         }
         var response = client.get("/")
         assertEquals(HttpStatusCode.OK, response.status)
