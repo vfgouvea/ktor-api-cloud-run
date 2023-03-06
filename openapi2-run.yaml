@@ -1,0 +1,46 @@
+# openapi2-run.yaml
+swagger: '2.0'
+info:
+  title: api-testing-project API gateway test project
+  description: Sample API on API Gateway with a Cloud Run backend
+  version: 1.0.0
+schemes:
+  - https
+produces:
+  - application/json
+paths:
+  /:
+    get:
+      summary: Cloud Run hello world
+      operationId: hello
+      x-google-backend:
+        address: https://ktor-api-wilvhcs7mq-rj.a.run.app
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
+  /clientes:
+    post:
+      summary: Cloud Run hello client Id
+      operationId: hello clientes
+      consumes:
+        - application/json
+      x-google-backend:
+        address: https://ktor-api-wilvhcs7mq-rj.a.run.app
+      parameters:
+        - in: body
+          name: cliente
+          description: Hello cliente Id
+          schema:
+            type: object
+            required:
+              - clienteId
+            properties:
+              clienteId:
+                type: string
+      responses:
+        '200':
+          description: A successful response to cliente
+          schema:
+            type: string
