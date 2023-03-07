@@ -35,17 +35,15 @@ ex.: gcloud api-gateway apis create api-testing-project --project=testingproject
 	gcloud api-gateway apis delete API_ID --project=PROJECT_ID -> deletando a api
 
 
-
 Criando uma API Config:
 
 Criar um arquivo yaml (openapi2-run.yaml) com as configuraçoes da api na linguagem swagger ( openAPI spec )
 
 gcloud api-gateway api-configs create CONFIG_ID --api=API_ID --openapi-spec=openapi2-run.yaml --project=PROJECT_ID --backend-auth-service-account=SERVICE_ACCOUNT_EMAIL
-
 	CONFIG_ID proprio usuario cria
 	SERVICE_ACCOUNT_EMAIL, criar em IAM and admm ou usar a default ja existente
 
-	gcloud api-gateway api-configs create api-testing-config --api=api-testing-project --openapi-spec=openapi2-run.yaml --project=testingproject-379516 --backend-auth-service-account=800153915076-compute@developer.gserviceaccount.com
+gcloud api-gateway api-configs create api-testing-config --api=api-testing-project --openapi-spec=openapi2-run.yaml --project=testingproject-379516 --backend-auth-service-account=800153915076-compute@developer.gserviceaccount.com
 
 ver detalhes -> gcloud api-gateway api-configs describe CONFIG_ID --api=API_ID --project=PROJECT_ID
 gcloud api-gateway api-configs describe api-testing-config --api=api-testing-project --project=testingproject-379516
