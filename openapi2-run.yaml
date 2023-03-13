@@ -6,8 +6,7 @@ info:
   version: 1.0.0
 schemes:
   - https
-produces:
-  - application/json
+produces: [application/json]
 paths:
   /:
     get:
@@ -23,23 +22,18 @@ paths:
   /clientes:
     post:
       summary: Cloud Run hello client Id
-      operationId: hello clientes
+      operationId: post clientes
       consumes:
         - application/json
       x-google-backend:
         address: https://ktor-api-wilvhcs7mq-rj.a.run.app
       parameters:
         - in: body
-          name: cliente
-          description: Hello cliente Id
+          name: param1
+          description: parameter cliente Id
+          required: true
           schema:
-            type: object
-            required: [
-                clienteId
-            ]
-            properties:
-              clienteId:
-                type: string
+            $ref: "#/definitions/Cliente"
       responses:
         200:
           description: A successful response to cliente
@@ -51,3 +45,12 @@ paths:
           description: Authorization information is missing or invalid.
         404:
           description: A user with the specified ID was not found.
+
+definitions:
+  Cliente:
+    type: object
+    required:
+      - clienteId
+    properties:
+      clienteId:
+        type: string
