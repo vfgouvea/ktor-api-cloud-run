@@ -49,8 +49,16 @@ paths:
 definitions:
   Cliente:
     type: object
-    required:
-      - clienteId
     properties:
       clienteId:
         type: string
+      analysisType:
+        type: string
+        enum: [
+          "Takeoff",
+          "Landing",
+          "Inflight"
+        ]
+    required:
+      - clienteId
+      - analysisType
