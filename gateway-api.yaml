@@ -1,12 +1,17 @@
-# openapi2-run.yaml
+# gateway-api.yaml
 swagger: '2.0'
 info:
-  title: api-testing-project API gateway test project
+  title: api-testing-project
   description: Sample API on API Gateway with a Cloud Run backend
   version: 1.0.0
 schemes:
   - https
 produces: [application/json]
+securityDefinitions:
+  api_key:
+    type: "apiKey"
+    name: "key"
+    in: "query"
 paths:
   /:
     get:
@@ -14,6 +19,8 @@ paths:
       operationId: hello
       x-google-backend:
         address: https://ktor-api-wilvhcs7mq-rj.a.run.app
+      security:
+        - api_key: []
       responses:
         '200':
           description: A successful response
@@ -27,6 +34,8 @@ paths:
         - application/json
       x-google-backend:
         address: https://ktor-api-wilvhcs7mq-rj.a.run.app
+      security:
+        - api_key: [ ]
       parameters:
         - in: body
           name: param1

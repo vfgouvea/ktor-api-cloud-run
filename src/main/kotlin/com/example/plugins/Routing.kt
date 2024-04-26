@@ -14,7 +14,8 @@ fun Application.configureRouting() {
         }
         post("/"){
             val rawBodyContent = call.receive<String>()
-            val testModel = Gson().fromJson(rawBodyContent,TestModel::class.java)
+            val gson = Gson()
+            val testModel = gson.fromJson(rawBodyContent,TestModel::class.java)
             call.respond("Hello, cliente with id: ${testModel.clienteId}")
         }
     }
