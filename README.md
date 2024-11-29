@@ -15,6 +15,7 @@ acessar com localhost:8080
 
 gcloud builds submit --tag gcr.io/PROJETO_ID/ktor-api-sample .
 gcloud builds submit --tag gcr.io/ecommerce-eba66/ktor-api-sample .
+** tem que criar as variaveis de ambiente do banco de dados na imagem para conectar corretamente
 
 gcloud run deploy --image gcr.io/PROJETO_ID/ktor-api-sample ktor-api --port 8080 --region southamerica-east1 --allow-unauthenticated
 gcloud run deploy --image gcr.io/ecommerce-eba66/ktor-api-sample ktor-api --port 8080 --region southamerica-east1 --allow-unauthenticated --timeout=3600
